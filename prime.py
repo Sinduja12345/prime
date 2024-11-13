@@ -13,5 +13,5 @@ for num in range(1, 251):
 #to Redirect Output to a Text File
 #Bash
 
-python3 prime_script.py >> results.txt
+python3 prime_script.py > results.txt
 

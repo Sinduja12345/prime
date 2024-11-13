@@ -1,0 +1,128 @@
+'''
+import math
+
+
+
+def calculate_area(r):
+    return math.pi*(r**2)
+    
+r=27
+area=calculate_area(r)
+print(f"area of circle is : {area}")
+
+'''
+'''
+
+import math
+
+def roundvalue():
+     return math.floor(1.5*2.746)
+     
+print(f"roundvalue is :{roundvalue()}")
+
+'''
+'''
+
+import random
+
+def get_dice():
+    return random.randint(1,6)
+    
+print(f"you rolled a {get_dice()}")
+'''
+
+from datetime import datetime
+
+now=datetime.now()
+print(f"currenttime : {now}")
+
+---------------
+def add():
+    c=a+b
+    return(c)
+a=10
+b=12
+print(f"sum is :{add()}")
+
+-----------------
+'''
+#file handlers 1
+
+print("here is my dairy: \n")
+f1=open("dairy.txt","r")
+print(f1.read())
+f1.close()
+
+#file handlers 2
+
+print("welcome new dairy: \n")
+f2=open("./dairy2.txt","w")
+f2.write("hello dairy welcome \n  how are you")
+f2=open("dairy2.txt","r")
+print(f2.read())
+f2.close()
+
+'''
+
+#exception handling
+
+print("here is my dairy:\n")
+
+try:
+    f1=open("./dairy3.txt,"r")
+    print(f1.read())
+    f1.close()
+except FileNotFoundError:
+    print("file doesnot exist")
+
+
+
+def division(number):
+    try:
+        value=100/number
+    except ZeroDivisionError:
+        print("divide by 0")
+        value=1
+    return value
+        
+print(division(4))
+print(division(9))  
+print(division(0))
+
+
+print("welcome")
+name=input("what is your name:")
+try:
+    age=int(input("hello, what is your age?:"))
+    print(f"hello {name}, your age is {age}")
+except ValueError:
+    print("thats not a valid age")
+
+------------------------
+json
+
+
+import json
+filename = 'userName.json'
+name = ''
+# Check for a history file
+try: 
+    with open(filename, 'r') as r:
+#Load the user's name from the history 
+        name = json.load(r)
+except IOError:
+    print("First-time login")
+# If the user was found in the history file, welcome them back
+if name != "":
+    print("Welcome back, " + name + "!")
+else:
+# If the history file doesn't exist, ask the user for their 
+    name = input("Hello! What's your name? ")
+    print("Welcome, " + name + "!")
+# Save the user's name to the history file
+try:
+    with open(filename, 'w') as f:
+        json.dump(name, f)
+except IOError:
+    print("There was a problem writing to the history file.")
+
